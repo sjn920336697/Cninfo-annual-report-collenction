@@ -41,8 +41,8 @@ file_to_read.close()
 # 板块类型：沪市：shmb；深市：szse；深主板：szmb；中小板：szzx；创业板：szcy；
 plate = E_tmp[0]
 # 年报开始和结束日期
-start_year = E_tmp[1]
-end_year = E_tmp[2]  
+start_year = E_tmp[1] + 1
+end_year = E_tmp[2] + 1
 # 股票列表：[''] 表示所有股票 
 stock_code_set=['']
 stock_code_set=E_tmp[3]  

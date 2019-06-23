@@ -140,7 +140,7 @@ def w3_Prase_PDF(df,vocab,freq,reloads):
 	print('====>  Praser PDF and count keyword consume {} seconds'.format(end-start))
 
 def Process_all(vocab=[''],freq=False,reloads =[0,0]):
-	path='LL/NB/annual_report_final.csv'
+	path='ANNUAL_REPORT/annual_report_final.csv'
 	if os.path.exists('PDF_SOURCE'):
 		print('PDF SORUCE EXISTS!!!')
 	else:
@@ -226,8 +226,8 @@ if __name__ == '__main__':
 	keyword_csv_file = 'RES/Annual_report_keyword_count by file_input.csv'
 	assert not os.path.exists(keyword_csv_file),'The last RES/Annual_report_keyword_count by file_input.csv is exist!!! Please remove or save it before running the code!!!'
 	
-	Process_file()
-	#Process_all(['大数据'])
+	#Process_file()
+	Process_all(['大数据'])
 
 
 

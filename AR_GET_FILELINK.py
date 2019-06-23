@@ -174,10 +174,7 @@ def get_url(OUT_DIR,stack_code_set,START_DATE,END_DATE):
         end_pg = int(math.ceil(item_count / MAX_PAGESIZE))
         print('Page count: ' + str(end_pg) + '; item count: ' + str(item_count) + '.')
         time.sleep(2)
-    
-        # 逐页抓取
-        #with open(output_csv_file, 'w', newline='', encoding='gb18030') as csv_out:
-            #writer = csv.writer(csv_out)
+
         for i in range(begin_pg, end_pg + 1):
             row = get_response(i,stack_code,START_DATE = START_DATE,END_DATE = END_DATE)
             #print(' ===> Annual report(pdf): {} '.format(len(row)))
@@ -185,7 +182,6 @@ def get_url(OUT_DIR,stack_code_set,START_DATE,END_DATE):
 
                 __log_error('Failed to fetch page #' + str(i) +
                             ': exceeding max reloading times (' + str(MAX_RELOAD_TIMES) + ').')
-                #print(row)
                 continue
             else:
                 print(' ===> Annual report(pdf): {} '.format(len(row)))
@@ -197,8 +193,6 @@ def get_url(OUT_DIR,stack_code_set,START_DATE,END_DATE):
             time.sleep(SLT)
     csv_out.close()    
     end=time.time()
-    #print('\n time to open processing all files are {}*********\n'.format((end-start)))
-    
     return output_csv_file
 
 def process_by_mon(start_date,end_date,stock_list = [''], plate = 'szse;'):
